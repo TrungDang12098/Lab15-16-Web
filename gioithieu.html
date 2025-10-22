@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giới thiệu - Trường THPT Tiểu La</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+  <a href="index.html">
+    <img src="img/tl.jpg" alt="Logo Trường"> 
+  </a>
+  <h1>Trường Trung học Phổ thông Tiểu La</h1>
+</header>
+
+
+  <nav>
+    <a href="index.html">Trang chủ</a> |
+    <a href="gioithieu.html">Giới thiệu</a> |
+    <a href="lienhe.html">Liên hệ</a> |
+    <a href="gopy.html">Góp ý</a> |
+    <a href="hoidap.html">Hỏi đáp</a>
+  </nav>
+
+  <div class="container">
+    <h2>Lịch sử hình thành</h2>
+    <p>Trường Trung học Phổ thông Tiểu La được thành lập từ năm XXXX, gắn liền với truyền thống hiếu học của vùng đất Hà Lam, Thăng Bình, Quảng Nam...</p>
+
+    <h2>Tầm nhìn & Sứ mệnh</h2>
+    <p><b>Tầm nhìn:</b> Xây dựng Trường THPT Tiểu La trở thành một trong những ngôi trường tiêu biểu của tỉnh Quảng Nam...</p>
+    <p><b>Sứ mệnh:</b> Trang bị kiến thức phổ thông vững chắc, bồi dưỡng năng lực tự học...</p>
+
+    <h2>Giá trị cốt lõi</h2>
+    <ul>
+      <li><b>Tri thức:</b> Cung cấp nền tảng học vấn chất lượng.</li>
+      <li><b>Nhân văn:</b> Hướng học sinh đến các giá trị đạo đức, nhân ái.</li>
+      <li><b>Sáng tạo:</b> Khuyến khích tinh thần đổi mới.</li>
+      <li><b>Hội nhập:</b> Giúp học sinh tự tin hòa nhập môi trường học tập toàn cầu.</li>
+    </ul>
+
+    <h2>Thành tích nổi bật</h2>
+    <ul>
+      <li>Tỷ lệ học sinh tốt nghiệp THPT đạt trên 98% mỗi năm.</li>
+      <li>Nhiều học sinh đỗ vào các trường đại học danh tiếng.</li>
+      <li>Giành nhiều giải thưởng học sinh giỏi và nghiên cứu khoa học.</li>
+      <li>Được công nhận là “Trường học thân thiện, học sinh tích cực”.</li>
+    </ul>
+  </div>
+
+ <footer>
+  <p>&copy; 2025 Trường Trung học Phổ thông Tiểu La</p>
+  <div class="social-icons">
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/share/1BQQS8eaUY/" target="_blank" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:info@tieula.edu.vn" title="Gửi email cho trường">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</footer>
+<!-- Chat Box -->
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header" onclick="toggleChat()">
+      💬 Hỗ trợ trực tuyến
+    </div>
+    <div class="chat-content" id="chatContent">
+      <div class="chat-message bot">Xin chào! Tôi có thể giúp gì cho bạn?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Nhập tin nhắn..." onkeypress="sendMessage(event)">
+      <button onclick="sendMessage()">Gửi</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const chatContent = document.getElementById("chatContent");
+      const chatInput = document.querySelector(".chat-input");
+      const isVisible = chatContent.style.display === "block";
+      chatContent.style.display = isVisible ? "none" : "block";
+      chatInput.style.display = isVisible ? "none" : "flex";
+    }
+
+    function sendMessage(event) {
+      if (event && event.key !== "Enter") return;
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (message === "") return;
+
+      const chatContent = document.getElementById("chatContent");
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "chat-message user";
+      userMsg.textContent = message;
+      chatContent.appendChild(userMsg);
+
+      const botMsg = document.createElement("div");
+      botMsg.className = "chat-message bot";
+      botMsg.textContent = "Cảm ơn bạn! Chúng tôi sẽ phản hồi sớm nhất.";
+      chatContent.appendChild(botMsg);
+
+      input.value = "";
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Liên hệ - Trường THPT Tiểu La</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+  <a href="index.html">
+    <img src="img/tl.jpg" alt="Logo Trường"> 
+  </a>
+  <h1>Trường Trung học Phổ thông Tiểu La</h1>
+</header>
+
+
+  <nav>
+    <a href="index.html">Trang chủ</a> |
+    <a href="gioithieu.html">Giới thiệu</a> |
+    <a href="lienhe.html">Liên hệ</a> |
+    <a href="gopy.html">Góp ý</a> |
+    <a href="hoidap.html">Hỏi đáp</a>
+  </nav>
+
+  <div class="container">
+    <h2>Thông tin liên hệ chính thức</h2>
+    <p><b>Địa chỉ:</b>88 Tiểu La, xã Thăng Bình, tp.Đà Nẵng.</p>
+    <p><b>Số điện thoại văn phòng:</b> 0905 374199</p>
+    <p><b>Email:</b> buicaovan@gmail.com</p>
+    <p><b>Website:</b> <a href="https://tieula.edu.vn">https://tieula.edu.vn</a></p>
+
+    <h2>Phòng ban liên hệ</h2>
+    <ul>
+      <li><b>Ban giám hiệu:</b> Quản lý chung, định hướng chiến lược.</li>
+      <li><b>Phòng hành chính:</b> Quản lý hồ sơ học sinh, giấy tờ, thủ tục.</li>
+      <li><b>Phòng đoàn – đội:</b> Tổ chức hoạt động ngoại khóa, phong trào.</li>
+      <li><b>Phòng công tác học sinh:</b> Tiếp nhận và giải quyết các vấn đề liên quan đến học sinh.</li>
+    </ul>
+
+    <h2>Bản đồ</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+  </div>
+
+  <footer>
+  <p>&copy; 2025 Trường Trung học Phổ thông Tiểu La</p>
+  <div class="social-icons">
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/share/1BQQS8eaUY/" target="_blank" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:info@tieula.edu.vn" title="Gửi email cho trường">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</footer>
+<!-- Chat Box -->
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header" onclick="toggleChat()">
+      💬 Hỗ trợ trực tuyến
+    </div>
+    <div class="chat-content" id="chatContent">
+      <div class="chat-message bot">Xin chào! Tôi có thể giúp gì cho bạn?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Nhập tin nhắn..." onkeypress="sendMessage(event)">
+      <button onclick="sendMessage()">Gửi</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const chatContent = document.getElementById("chatContent");
+      const chatInput = document.querySelector(".chat-input");
+      const isVisible = chatContent.style.display === "block";
+      chatContent.style.display = isVisible ? "none" : "block";
+      chatInput.style.display = isVisible ? "none" : "flex";
+    }
+
+    function sendMessage(event) {
+      if (event && event.key !== "Enter") return;
+      const input = document.getElementById("userInput");
+      const message = input.value.trim();
+      if (message === "") return;
+
+      const chatContent = document.getElementById("chatContent");
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "chat-message user";
+      userMsg.textContent = message;
+      chatContent.appendChild(userMsg);
+
+      const botMsg = document.createElement("div");
+      botMsg.className = "chat-message bot";
+      botMsg.textContent = "Cảm ơn bạn! Chúng tôi sẽ phản hồi sớm nhất.";
+      chatContent.appendChild(botMsg);
+
+      input.value = "";
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }
+  </script>
+</body>
+</html>
